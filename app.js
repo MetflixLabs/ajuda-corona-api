@@ -7,7 +7,7 @@ const get = require('./api.js');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ credentials: true, origin: 'https://www.ajudacorona.com.br' }));
 app.use(helmet());
 
 const server = app.listen(process.env.PORT || 5000);
