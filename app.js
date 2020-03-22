@@ -17,7 +17,10 @@ app.use(helmet());
 let balance = '-';
 
 io.on('connection', socket => {
-  socket.emit('balance', balance);
+  socket.emit('serverData', {
+    balance,
+    onlineUsers: Object.keys(io.sockets.sockets).length,
+  });
 });
 
 interval(async () => {
@@ -27,7 +30,10 @@ interval(async () => {
 
     balance = reward;
 
-    io.emit('balance', balance);
+    io.emit('serverData', {
+      balance,
+      onlineUsers: Object.keys(io.sockets.sockets).length,
+    });
   } catch (error) {
     throw new Error(error);
   }
