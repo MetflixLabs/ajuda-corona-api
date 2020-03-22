@@ -8,7 +8,7 @@ const get = require('./api.js');
 
 const app = express();
 const server = http.createServer(app);
-const io = socketio({ path: '/corona/socket' }).listen(server);
+const io = socketio({ path: '/corona' }).listen(server);
 
 app.use(cors());
 // app.use(cors({ credentials: true, origin: 'https://www.ajudacorona.com.br' }));
