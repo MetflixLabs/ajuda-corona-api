@@ -14,6 +14,11 @@ const io = socketio().listen(server);
 app.use(cors({ credentials: true, origin: 'https://www.ajudacorona.com.br' }));
 app.use(helmet());
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', req.header('origin'));
+  next();
+});
+
 let balance = '-';
 
 io.on('connection', socket => {
