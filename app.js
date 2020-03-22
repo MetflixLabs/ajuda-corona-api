@@ -11,7 +11,7 @@ app.use(cors({ credentials: true, origin: 'https://www.ajudacorona.com.br' }));
 app.use(helmet());
 
 const server = app.listen(process.env.PORT || 5000);
-const io = socketio().listen(server);
+const io = socketio({ path: '/corona' }).listen(server);
 
 let balance = '-';
 
