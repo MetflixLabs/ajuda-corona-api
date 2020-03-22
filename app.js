@@ -38,6 +38,6 @@ interval(async () => {
   }
 }, 5000);
 
-app.get('/testEndpoint', (req, res) => {
+app.get('/corona/testEndpoint', (req, res) => {
   res.json({ test: 'return test' });
 });
