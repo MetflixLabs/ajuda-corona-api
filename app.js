@@ -37,3 +37,7 @@ interval(async () => {
     throw new Error(error);
   }
 }, 5000);
+
+app.get('/testEndpoint', (req, res) => {
+  res.json({ test: 'return test' });
+});
