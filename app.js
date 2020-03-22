@@ -10,7 +10,8 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio().listen(server);
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({ credentials: true, origin: 'https://ajudacorona.com.br' }));
 app.use(helmet());
 
 let balance = '-';
