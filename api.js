@@ -1,5 +1,5 @@
-import dotenv from 'dotenv';
-import axios from 'axios';
+const dotenv = require('dotenv');
+const axios = require('axios');
 
 dotenv.config();
 
@@ -21,7 +21,7 @@ const params = {
   currency: 'mintme',
 };
 
-export const get = async (endpoint = '') => {
+const get = async (endpoint = '') => {
   try {
     const res = await api.get(endpoint, { params });
     return res.data;
@@ -29,3 +29,5 @@ export const get = async (endpoint = '') => {
     throw new Error(error);
   }
 };
+
+module.exports = get;

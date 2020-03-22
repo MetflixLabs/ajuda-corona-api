@@ -1,11 +1,10 @@
-import express from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import http from 'http';
-import socketio from 'socket.io';
-import interval from 'interval-promise';
-
-import { get } from './api.js';
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+const http = require('http');
+const socketio = require('socket.io');
+const interval = require('interval-promise');
+const get = require('./api.js');
 
 const app = express();
 const server = http.createServer(app);
@@ -39,4 +38,4 @@ interval(async () => {
   }
 }, 5000);
 
-server.listen(process.env.PORT || 3000);
+server.listen(process.env.PORT || 5000);
