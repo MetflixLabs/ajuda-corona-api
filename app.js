@@ -1,17 +1,18 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
+const http = require('http');
 const socketio = require('socket.io');
 const interval = require('interval-promise');
 const get = require('./api.js');
 
 const app = express();
+const server = http.createServer(app);
+const io = socketio({ path: '/corona/socket' }).listen(server);
 
 app.use(cors());
+// app.use(cors({ credentials: true, origin: 'https://www.ajudacorona.com.br' }));
 app.use(helmet());
-
-const server = app.listen(process.env.PORT || 5000);
-const io = socketio({ path: '/corona/socket' }).listen(server);
 
 let balance = '-';
 
@@ -41,3 +42,5 @@ interval(async () => {
 app.get('/corona/testEndpoint', (req, res) => {
   res.json({ test: 'return test' });
 });
+
+server.listen(process.env.PORT || 5000);
