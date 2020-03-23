@@ -8,7 +8,7 @@ const get = require('./api.js');
 
 const app = express();
 const server = http.createServer(app);
-const io = socketio({ path: '/corona/ws' }).listen(server);
+const io = socketio({ path: '/corona' }).listen(server);
 
 app.use(cors());
 app.use(helmet());
@@ -37,9 +37,5 @@ interval(async () => {
     throw new Error(error);
   }
 }, 5000);
-
-app.get('/corona/testEndpoint', (req, res) => {
-  res.json({ test: 'return test' });
-});
 
 server.listen(process.env.PORT || 5000);
