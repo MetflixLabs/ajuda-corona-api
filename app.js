@@ -8,7 +8,7 @@ const get = require('./api.js');
 
 const app = express();
 const server = http.createServer(app);
-const io = socketio({ path: '/corona/ws' }).listen(server);
+const io = socketio({ path: '/corona' }).listen(server);
 
 app.use(cors());
 app.use(helmet());
