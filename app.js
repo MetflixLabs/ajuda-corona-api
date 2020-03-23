@@ -9,7 +9,7 @@ import { get } from './api.js';
 
 const app = express();
 const server = http.createServer(app);
-const io = socketio().listen(server);
+const io = socketio({ path: '/corona' }).listen(server);
 
 app.use(cors());
 app.use(helmet());
