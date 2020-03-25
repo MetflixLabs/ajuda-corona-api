@@ -37,6 +37,6 @@ interval(async () => {
   } catch (error) {
     throw new Error(error);
   }
-}, 5000);
+}, 15000);
 
 server.listen(process.env.PORT || 3000);
